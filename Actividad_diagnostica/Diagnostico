@@ -44,3 +44,98 @@ function procesar(array, callback) {
   }
   return resultado;
 }
+
+// Actividad 4 
+
+//cada uno de estos se crearian como componentes separados en la carpeta "Components"
+
+import React from 'react';
+
+function Saludo({ nombre }) {
+  return <p>Hola {nombre}</p>;
+}
+
+export default Saludo;
+------
+
+import React from 'react';
+
+function Presentacion({ nombre, edad, profesion }) {
+  return (
+    <p>
+      ¡Hola! Mi nombre es {nombre}, tengo {edad} años y trabajo como {profesion}.
+    </p>
+  );
+}
+
+export default Presentacion;
+
+------
+// en App quedaria de la siguiente forma
+import React from 'react';
+import Saludo from './components/Saludo';
+import Presentacion from './components/Presentacion';
+
+function App() {
+  return (
+    <div>
+      <h1>Ejemplos de Componentes</h1>
+      
+      <h2>Componente Saludo:</h2>
+      <Saludo nombre="Martín" />
+      
+      <h2>Componente Presentación:</h2>
+      <Presentacion 
+        nombre="Carlos" 
+        edad={32} 
+        profesion="diseñador gráfico" 
+      />
+    </div>
+  );
+}
+
+export default App;
+
+//actividad 5
+import React from 'react';
+
+function BotonTailwind() {
+  return (
+    <button className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors">
+      Botón con Tailwind
+    </button>
+  );
+}
+
+export default BotonTailwind;
+
+// Actividad 6 (Lo hice con el chat profe, entendi casi todo, dejo las anotaciones porque me sirven) 
+
+const productos = [
+  { nombre: "Notebook", precio: 1200 },
+  { nombre: "Mouse", precio: 20 },
+  { nombre: "Teclado", precio: 50 },
+  { nombre: "Monitor", precio: 300 },
+  { nombre: "Auriculares", precio: 80 }
+];
+
+// 1. Filter - Productos > $100
+const productosCaros = productos.filter(p => p.precio > 100);
+console.log("Productos > $100:", productosCaros);
+
+// 2. Map - Formatear strings
+const productosFormateados = productos.map(p => `${p.nombre}: $${p.precio}`);
+console.log("Productos formateados:", productosFormateados);
+
+// 3. Reduce - Precio total
+const total = productos.reduce((sum, p) => sum + p.precio, 0);
+console.log("Precio total:", total);
+
+// 4. Filter + Map - Nombres < $100 en minúsculas
+const nombresBaratos = productos
+  .filter(p => p.precio < 100)
+  .map(p => p.nombre.toLowerCase());
+console.log("Nombres productos < $100:", nombresBaratos);
+
+// Actividad 7
+
