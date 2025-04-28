@@ -1,0 +1,46 @@
+// Actividad 1
+
+// 1
+const nombre = "Ana";
+const edad = 22;
+console.log(`Hola, me llamo ${nombre} y tengo ${edad} años.`);
+
+// 2
+const numeros = [3, 7, 12, 5, 2];
+const cuadrados = numeros.map(num => num ** 2);
+const mayoresA5 = numeros.filter(num => num > 5);
+
+console.log("Cuadrados:", cuadrados); // [9, 49, 144, 25, 4]
+console.log("Mayores a 5:", mayoresA5); // [7, 12]
+
+// 3
+const parOImpar = numero => numero % 2 === 0 ? "par" : "impar";
+console.log(parOImpar(4)); // "par"
+console.log(parOImpar(7)); // "impar"
+
+// Actividad 2
+
+const persona = {
+  nombre: "Lucía",
+  edad: 28,
+  profesion: "Diseñadora",
+};
+
+// 1: 
+const { nombre, edad, profesion } = persona;
+console.log(`${nombre} tiene ${edad} años y trabaja como ${profesion}.`);
+
+// 2: 
+persona.ciudad = "Rosario";
+console.log(persona);
+
+
+// Actividad 3
+
+function procesar(array, callback) {
+  const resultado = [];
+  for (let i = 0; i < array.length; i++) {
+    resultado.push(callback(array[i]));
+  }
+  return resultado;
+}
