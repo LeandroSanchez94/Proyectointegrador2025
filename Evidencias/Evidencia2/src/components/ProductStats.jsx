@@ -1,12 +1,12 @@
 import React from 'react';
 
 export const ProductStats = ({ products }) => {
-  // Validación inicial para productos vacíos
+  
   if (!products || products.length === 0) {
     return <div className="p-4 text-gray-500">No hay productos para mostrar estadísticas</div>;
   }
 
-  // Cálculo de estadísticas
+  
 const stats = {
     mostExpensive: products.reduce((max, p) => (p.price > max.price ? p : max), products[0]),
     cheapest: products.reduce((min, p) => (p.price < min.price ? p : min), products[0]),
@@ -16,7 +16,7 @@ const stats = {
     avgRating: products.reduce((sum, p) => sum + p.rating, 0) / products.length
   };
 
-  // Componente interno para mostrar cada estadística
+ 
 const StatCard = ({ title, value }) => (
     <div className="bg-gray-50 p-3 rounded border">
       <h4 className="font-semibold text-sm text-gray-600">{title}</h4>
